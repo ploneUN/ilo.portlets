@@ -1,0 +1,100 @@
+<dl class="portlet" id="mission-reports-statistics">
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <span>
+           Mission Reports Statistics
+        </span>
+        <span class="portletTopRight"></span>
+    </dt>
+    <dd class="portletItem odd" tal:define="data view/cache">
+
+        <div>
+
+            <h2>Total:  <span
+                    tal:content="data/total"></span>
+            </h2>
+            International: <span
+                tal:content="data/international_count"></span><br/>
+            Domestic: <span
+                tal:content="data/domestic_count"></span><br />
+        </div>
+
+
+        <table width="100%" class="grid listing">
+            <caption><b>Top Themes</b></caption>
+            <tr>
+                <th colspan="3"><span tal:content="python: data['themes'][0][0]"></span></th>
+            </tr>
+            <tr>
+                <td>International</td>
+                <td>Domestic</td>
+                <td>Total</td>
+            </tr>
+            <tr style="text-align:center;">
+                <td tal:content="python: data['themes_international'][0][1]"></td>
+                <td tal:content="python: data['themes_domestic'][0][1]"></td>
+                <td tal:content="python: data['themes'][0][1]"></td>
+            </tr>
+            <tr>
+                <th colspan="3"><span tal:content="python: data['themes'][1][0]"></span></th>
+            </tr>
+            <tr>
+                <td>International</td>
+                <td>Domestic</td>
+                <td>Total</td>
+            </tr>
+            <tr style="text-align:center;">
+                <td tal:content="python: data['themes_international'][1][1]"></td>
+                <td tal:content="python: data['themes_domestic'][1][1]"></td>
+                <td tal:content="python: data['themes'][1][1]"></td>
+            </tr>
+            <tr>
+                <th colspan="3"><span tal:content="python: data['themes'][2][0]"></span></th>
+            </tr>
+            <tr>
+                <td>International</td>
+                <td>Domestic</td>
+                <td>Total</td>
+            </tr>
+            <tr style="text-align:center;">
+                <td tal:content="python: data['themes_international'][2][1]"></td>
+                <td tal:content="python: data['themes_domestic'][2][1]"></td>
+                <td tal:content="python: data['themes'][2][1]"></td>
+            </tr>
+
+
+
+        </table>
+
+        <h2>Top International Destinations</h2>
+
+               <ul>
+                <li  tal:repeat="item data/international">
+                   <span tal:content="python:item[0]"></span> 
+                   (<span
+                       tal:content="python:item[1]"></span>)
+                </li>
+               </ul>
+
+               <h2>Top Domestic Destinations</h2>
+                   <ul>
+                   <li  tal:repeat="item data/domestic">
+                   <span tal:content="python:item[0]"></span>
+                   (<span
+                       tal:content="python:item[1]"></span>)
+                       </li>
+                   </ul>
+
+        <p class="discreet">Domestic and International totals currently reflect
+        missions from 2010 only.</p>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBotomLeft"></span>
+        <a href="/reports/mission-reports/statistics" title="More Statistics">
+	More Statistics
+        </a>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>

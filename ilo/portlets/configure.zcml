@@ -1,0 +1,44 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="ilo.portlets">
+
+    <five:registerPackage package="."/>
+
+    <genericsetup:registerProfile
+       name="default"
+       title="Mission Reports Statistics Portlet"
+       directory="profiles/default"
+       description="Portlet for Mission Reports Statistics"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+     <!-- Register the portlet -->
+
+     <!-- If the portlet has no configurable parameters, you can remove
+          the EditForm declaration in p4avideoportlet.py and delete
+          the 'editview' attribute from this statement.
+       -->
+
+     <plone:portlet
+         name="ilo.portlets.missionreports"
+         interface=".missionreports.Imissionreports"
+         assignment=".missionreports.Assignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".missionreports.Renderer"
+         addview=".missionreports.AddForm"
+       />
+    
+        <adapter name="mission-report"
+                    factory=".base.MissionReportRenderer" />
+
+        <adapter name="events"
+                    factory=".base.ILOEventRenderer" />
+
+        <adapter name="recent"
+                    factory=".base.RecentRenderer" />
+
+</configure>

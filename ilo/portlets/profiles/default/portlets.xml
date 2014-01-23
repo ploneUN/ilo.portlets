@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="ilo.portlets.missionreports"
+   title="Mission Reports Statistics Portlet"
+   description="ILO Mission Reports Statisticsi Portlet"
+   />
+
+</portlets>
